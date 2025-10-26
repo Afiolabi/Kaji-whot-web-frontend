@@ -14,18 +14,19 @@ A modern, real-time multiplayer Whot card game built with React, TypeScript, and
 
 ## 🚀 Tech Stack
 
-- **Frontend Framework**: React 19 + TypeScript
+- **Frontend Framework**: React 19 + TypeScript  + Vite
 - **State Management**: Redux Toolkit
 - **Routing**: React Router v7
-- **Styling**: Tailwind CSS v4
+- **Styling**: Tailwind CSS v4 + HeadlessUI
 - **Real-time**: Socket.io Client
-- **Video/Audio**: Daily.co
+- **Video/Audio WebRTC**: Daily.co
 - **Backend Integration**: Axios
-- **Authentication**: Firebase
+- **Authentication**: Firebase Auth
 - **Forms**: React Hook Form + Zod
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Testing**: Vitest + Testing Library
+
 
 ## 📁 Project Structure
 
@@ -53,19 +54,6 @@ See [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) for detailed documentation.
 2. **Configure environment variables**
    
    Update `.env.development` with your credentials:
-   ```env
-   VITE_API_BASE_URL=http://localhost:5000/api
-   VITE_SOCKET_URL=http://localhost:5000
-   VITE_FIREBASE_API_KEY=your_firebase_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   VITE_DAILY_API_KEY=your_daily_api_key
-   VITE_APP_NAME=Whot Game
-   VITE_APP_VERSION=1.0.0
-   ```
 
 3. **Start development server**
    ```bash

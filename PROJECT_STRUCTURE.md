@@ -3,133 +3,258 @@
 ## Directory Organization
 
 ```
-src/
-├── app/                          # Application core setup
-│   ├── store/                    # Redux store configuration
-│   └── providers/                # Context providers
+whot-game-frontend/
+├── public/
+│   ├── assets/
+│   │   ├── cards/           # Card images
+│   │   ├── avatars/         # Default avatars
+│   │   └── sounds/          # Game sounds
+│   └── favicon.ico
 │
-├── features/                     # Feature-based modules
-│   ├── auth/                     # Authentication feature
-│   │   ├── components/           # Auth-specific components
-│   │   ├── hooks/                # Auth-specific hooks
-│   │   ├── services/             # Auth services
-│   │   └── types/                # Auth types
+├── src/
+│   ├── app/
+│   │   ├── store.ts         # Redux store configuration
+│   │   ├── hooks.ts         # Typed Redux hooks
+│   │   └── rootReducer.ts   # Combined reducers
 │   │
-│   ├── game/                     # Game logic and UI
-│   │   ├── components/           # Game components (Board, Cards, etc.)
-│   │   ├── hooks/                # Game hooks
-│   │   ├── services/             # Game logic services
-│   │   └── types/                # Game types
+│   ├── features/
+│   │   ├── auth/
+│   │   │   ├── components/
+│   │   │   │   ├── LoginForm.tsx
+│   │   │   │   ├── SignupForm.tsx
+│   │   │   │   └── AuthLayout.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useAuth.ts
+│   │   │   ├── services/
+│   │   │   │   └── authService.ts
+│   │   │   ├── slices/
+│   │   │   │   └── authSlice.ts
+│   │   │   └── types/
+│   │   │       └── auth.types.ts
+│   │   │
+│   │   ├── game/
+│   │   │   ├── components/
+│   │   │   │   ├── GameRoom/
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── PlayerGrid.tsx
+│   │   │   │   │   ├── PlayerFrame.tsx
+│   │   │   │   │   ├── PlayingArea.tsx
+│   │   │   │   │   ├── Market.tsx
+│   │   │   │   │   ├── PlayedCards.tsx
+│   │   │   │   │   ├── YourHand.tsx
+│   │   │   │   │   ├── ObserversPanel.tsx
+│   │   │   │   │   ├── GameStatus.tsx
+│   │   │   │   │   └── TopBar.tsx
+│   │   │   │   ├── Card/
+│   │   │   │   │   ├── Card.tsx
+│   │   │   │   │   └── CardBack.tsx
+│   │   │   │   ├── VideoControls/
+│   │   │   │   │   ├── VideoFrame.tsx
+│   │   │   │   │   └── ControlOverlay.tsx
+│   │   │   │   └── modals/
+│   │   │   │       ├── InspectCardsModal.tsx
+│   │   │   │       ├── ReplacePlayerModal.tsx
+│   │   │   │       └── GameResultsModal.tsx
+│   │   │   ├── hooks/
+│   │   │   │   ├── useGameState.ts
+│   │   │   │   ├── useGameActions.ts
+│   │   │   │   └── useTurnTimer.ts
+│   │   │   ├── services/
+│   │   │   │   ├── gameService.ts
+│   │   │   │   └── cardLogic.ts
+│   │   │   ├── slices/
+│   │   │   │   ├── gameSlice.ts
+│   │   │   │   └── gameRoomSlice.ts
+│   │   │   ├── types/
+│   │   │   │   ├── game.types.ts
+│   │   │   │   └── card.types.ts
+│   │   │   └── utils/
+│   │   │       ├── cardValidator.ts
+│   │   │       └── gameUtils.ts
+│   │   │
+│   │   ├── lobby/
+│   │   │   ├── components/
+│   │   │   │   ├── Lobby/
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── PlayerList.tsx
+│   │   │   │   │   ├── ObserverList.tsx
+│   │   │   │   │   ├── LobbySettings.tsx
+│   │   │   │   │   ├── ReadyButton.tsx
+│   │   │   │   │   ├── CountdownTimer.tsx
+│   │   │   │   │   └── InviteFriends.tsx
+│   │   │   │   └── VideoPreview.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useLobby.ts
+│   │   │   ├── slices/
+│   │   │   │   └── lobbySlice.ts
+│   │   │   └── types/
+│   │   │       └── lobby.types.ts
+│   │   │
+│   │   ├── rooms/
+│   │   │   ├── components/
+│   │   │   │   ├── RoomBrowser/
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── RoomCard.tsx
+│   │   │   │   │   └── RoomFilters.tsx
+│   │   │   │   ├── CreateRoom/
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── RoomTypeSelector.tsx
+│   │   │   │   │   └── RoomSettings.tsx
+│   │   │   │   ├── FreeRoom.tsx
+│   │   │   │   ├── RankRoom.tsx
+│   │   │   │   └── CelebrityRoom.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useRooms.ts
+│   │   │   ├── slices/
+│   │   │   │   └── roomsSlice.ts
+│   │   │   └── types/
+│   │   │       └── room.types.ts
+│   │   │
+│   │   ├── wallet/
+│   │   │   ├── components/
+│   │   │   │   ├── WalletDashboard.tsx
+│   │   │   │   ├── FundWallet.tsx
+│   │   │   │   ├── Withdraw.tsx
+│   │   │   │   └── TransactionHistory.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useWallet.ts
+│   │   │   ├── slices/
+│   │   │   │   └── walletSlice.ts
+│   │   │   └── types/
+│   │   │       └── wallet.types.ts
+│   │   │
+│   │   ├── profile/
+│   │   │   ├── components/
+│   │   │   │   ├── ProfileView.tsx
+│   │   │   │   ├── EditProfile.tsx
+│   │   │   │   ├── StatsPanel.tsx
+│   │   │   │   └── FriendsList.tsx
+│   │   │   ├── slices/
+│   │   │   │   └── profileSlice.ts
+│   │   │   └── types/
+│   │   │       └── profile.types.ts
+│   │   │
+│   │   ├── celebrity/
+│   │   │   ├── components/
+│   │   │   │   ├── CelebrityOnboarding/
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   ├── IdentityVerification.tsx
+│   │   │   │   │   ├── SocialMediaLink.tsx
+│   │   │   │   │   └── ProfileSetup.tsx
+│   │   │   │   └── CelebrityDashboard.tsx
+│   │   │   ├── slices/
+│   │   │   │   └── celebritySlice.ts
+│   │   │   └── types/
+│   │   │       └── celebrity.types.ts
+│   │   │
+│   │   └── notifications/
+│   │       ├── components/
+│   │       │   ├── NotificationCenter.tsx
+│   │       │   └── Toast.tsx
+│   │       ├── slices/
+│   │       │   └── notificationsSlice.ts
+│   │       └── types/
+│   │           └── notification.types.ts
 │   │
-│   ├── lobby/                    # Lobby/waiting room
+│   ├── shared/
 │   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   │   ├── Button.tsx
+│   │   │   │   ├── Input.tsx
+│   │   │   │   ├── Modal.tsx
+│   │   │   │   ├── Card.tsx
+│   │   │   │   ├── Badge.tsx
+│   │   │   │   ├── Avatar.tsx
+│   │   │   │   ├── Spinner.tsx
+│   │   │   │   ├── Dropdown.tsx
+│   │   │   │   └── Tabs.tsx
+│   │   │   ├── layout/
+│   │   │   │   ├── MainLayout.tsx
+│   │   │   │   ├── GameLayout.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── Sidebar.tsx
+│   │   │   │   └── Footer.tsx
+│   │   │   └── common/
+│   │   │       ├── ErrorBoundary.tsx
+│   │   │       ├── LoadingScreen.tsx
+│   │   │       └── ProtectedRoute.tsx
 │   │   ├── hooks/
+│   │   │   ├── useSocket.ts
+│   │   │   ├── useWebRTC.ts
+│   │   │   ├── useMediaStream.ts
+│   │   │   ├── useLocalStorage.ts
+│   │   │   ├── useDebounce.ts
+│   │   │   └── useClickOutside.ts
+│   │   ├── utils/
+│   │   │   ├── api.ts
+│   │   │   ├── constants.ts
+│   │   │   ├── helpers.ts
+│   │   │   ├── formatters.ts
+│   │   │   └── validators.ts
 │   │   └── types/
+│   │       ├── common.types.ts
+│   │       └── api.types.ts
 │   │
-│   ├── rooms/                    # Room management
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
+│   ├── services/
+│   │   ├── socket/
+│   │   │   ├── socketClient.ts
+│   │   │   ├── socketEvents.ts
+│   │   │   └── socketMiddleware.ts
+│   │   ├── webrtc/
+│   │   │   ├── dailyClient.ts
+│   │   │   └── webrtcService.ts
+│   │   ├── api/
+│   │   │   ├── axios.config.ts
+│   │   │   ├── endpoints.ts
+│   │   │   └── interceptors.ts
+│   │   └── firebase/
+│   │       └── firebaseConfig.ts
 │   │
-│   ├── wallet/                   # Wallet/payment integration
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
+│   ├── pages/
+│   │   ├── Landing.tsx
+│   │   ├── GameModeSelection.tsx
+│   │   ├── OfflineGame.tsx
+│   │   ├── Wallet.tsx
+│   │   ├── Profile.tsx
+│   │   ├── Settings.tsx
+│   │   ├── CelebrityOnboarding.tsx
+│   │   └── NotFound.tsx
 │   │
-│   ├── profile/                  # User profile
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
+│   ├── routes/
+│   │   ├── AppRouter.tsx
+│   │   └── routeConfig.ts
 │   │
-│   ├── celebrity/                # Celebrity mode features
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   └── types/
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── animations.css
 │   │
-│   └── notifications/            # Notifications system
-│       ├── components/
-│       ├── hooks/
-│       └── types/
+│   ├── config/
+│   │   ├── env.ts
+│   │   └── game.config.ts
+│   │
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── vite-env.d.ts
 │
-├── shared/                       # Shared resources
-│   ├── components/               # Reusable UI components
-│   │   ├── Button/
-│   │   ├── Card/
-│   │   ├── Modal/
-│   │   ├── Layout/
-│   │   └── index.ts
-│   │
-│   ├── hooks/                    # Reusable custom hooks
-│   │   ├── useAuth.ts
-│   │   ├── useSocket.ts
-│   │   ├── useGame.ts
-│   │   └── index.ts
-│   │
-│   ├── utils/                    # Utility functions
-│   │   ├── helpers.ts
-│   │   ├── validators.ts
-│   │   ├── formatters.ts
-│   │   └── index.ts
-│   │
-│   └── types/                    # Shared TypeScript types
-│       ├── game.types.ts
-│       ├── user.types.ts
-│       ├── room.types.ts
-│       └── index.ts
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   └── setup.ts
 │
-├── services/                     # External service integrations
-│   ├── api/                      # REST API client
-│   │   ├── client.ts
-│   │   ├── endpoints.ts
-│   │   └── index.ts
-│   │
-│   ├── socket/                   # Socket.io integration
-│   │   ├── socket.service.ts
-│   │   ├── socket.events.ts
-│   │   └── index.ts
-│   │
-│   ├── webrtc/                   # Daily.co WebRTC integration
-│   │   ├── daily.service.ts
-│   │   └── index.ts
-│   │
-│   └── firebase/                 # Firebase services
-│       ├── firebase.config.ts
-│       ├── auth.service.ts
-│       ├── firestore.service.ts
-│       └── index.ts
-│
-├── pages/                        # Page components
-│   ├── HomePage.tsx
-│   ├── AuthPage.tsx
-│   ├── LobbyPage.tsx
-│   ├── GamePage.tsx
-│   └── ProfilePage.tsx
-│
-├── routes/                       # Routing configuration
-│   └── index.tsx
-│
-├── config/                       # App configuration
-│   ├── env.ts                    # Environment variables
-│   ├── constants.ts              # App constants
-│   └── index.ts
-│
-├── styles/                       # Global styles
-│   ├── globals.css
-│   └── themes/
-│
-├── assets/                       # Static assets (original Vite)
-│   └── react.svg
-│
-├── App.tsx                       # Root component
-├── main.tsx                      # Entry point
-└── index.css                     # Global CSS with Tailwind
-
-public/
-├── assets/
-│   ├── cards/                    # Card images
-│   ├── avatars/                  # Avatar images
-│   └── sounds/                   # Sound effects
-└── vite.svg
+├── .env.example
+├── .env.development
+├── .env.production
+├── .eslintrc.cjs
+├── .prettierrc
+├── .gitignore
+├── index.html
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
 ```
 
 ## Architecture Principles
