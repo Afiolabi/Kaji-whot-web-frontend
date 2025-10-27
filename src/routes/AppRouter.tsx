@@ -59,7 +59,7 @@ const AppRouter = () => {
           </ProtectedRoute>
         }
       >
-        <Route path={ROUTES.LOBBY} element={<Lobby />} />
+        <Route path={ROUTES.LOBBY} element  ={<Lobby />} />
         <Route path={ROUTES.GAME} element={<GameRoom />} />
       </Route>
 
