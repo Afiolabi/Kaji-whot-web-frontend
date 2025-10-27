@@ -4,6 +4,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { store } from './app/store';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { queryClient } from './app/queryClient';
 import AppRouter from './routes/AppRouter';
 import { fetchCurrentUser } from './features/auth/slices/authSlice';
 import ErrorBoundary from './shared/components/common/ErrorBoundary';
@@ -20,10 +23,13 @@ function App() {
   return (
     <ErrorBoundary>
       <Provider store={store}>
-        <BrowserRouter>
-          <AppRouter />
-          <Toaster position="top-right" />
-        </BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <AppRouter />
+            <Toaster position="top-right" />
+          </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </Provider>
     </ErrorBoundary>
   );

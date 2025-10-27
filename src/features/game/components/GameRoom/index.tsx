@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { useAppSelector } from '@/app/hooks';
 import { useWebRTC } from '@/shared/hooks/useWebRTC';
 import { useSocket } from '@/shared/hooks/useSocket';
 import TopBar from './TopBar';
@@ -13,7 +14,7 @@ import GameResultsModal from './modals/GameResultsModal';
 export const GameRoom = () => {
   const { roomId } = useParams<{ roomId: string }>();
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { isConnected } = useSocket();
   
   const gameState = useAppSelector((state) => state.game);
@@ -75,7 +76,7 @@ export const GameRoom = () => {
         {/* Observers Panel (Right Sidebar) */}
         <ObserversPanel 
           observers={gameState.observers}
-          isHost={gameState.players.find(p => p.id === user.id)?.position === 0}
+          isHost={gameState.players.find((p: { id: any; }) => p.id === user.id)?.position === 0}
         />
       </div>
 

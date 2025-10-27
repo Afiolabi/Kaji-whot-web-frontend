@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from '../Card/Card';
-import { PlayedCard } from '../../types/game.types';
+// import { PlayedCard } from '../../types/game.types';
 import InspectCardsModal from './modals/InspectCardsModal';
+import { PlayedCard } from '../../types/card.types';
 
 interface PlayedCardsProps {
   cards: PlayedCard[];

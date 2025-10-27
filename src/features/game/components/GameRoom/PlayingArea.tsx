@@ -1,7 +1,8 @@
 import PlayedCards from './PlayedCards';
 import Market from './Market';
 import GameStatus from './GameStatus';
-import { PlayedCard } from '../../types/game.types';
+import { PlayedCard } from '../../types/card.types';
+// import { PlayedCard } from '../../types/game.types';
 
 interface PlayingAreaProps {
   playedCards: PlayedCard[];

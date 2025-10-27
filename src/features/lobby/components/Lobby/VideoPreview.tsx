@@ -29,7 +29,7 @@ const VideoPreview = () => {
 
       <div className="flex space-x-4">
         <button
-          onClick={() => toggleAudio()}
+          onClick={() => toggleAudio(true)}
           className={`flex-1 py-3 rounded-lg font-medium transition ${
             audioEnabled
               ? 'bg-green-500 text-white hover:bg-green-600'
@@ -40,7 +40,7 @@ const VideoPreview = () => {
         </button>
 
         <button
-          onClick={() => toggleVideo()}
+          onClick={() => toggleVideo(true)}
           className={`flex-1 py-3 rounded-lg font-medium transition ${
             videoEnabled
               ? 'bg-green-500 text-white hover:bg-green-600'

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GameState, Player, Observer, PlayedCard, Card } from '../types/game.types';
+import { GameState, Player, Observer } from '../types/game.types';
+import { Card, PlayedCard } from '../types/card.types';
 
 interface GameSliceState extends GameState {
   players: Player[];

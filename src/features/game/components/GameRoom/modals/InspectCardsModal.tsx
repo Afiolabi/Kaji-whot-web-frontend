@@ -1,7 +1,8 @@
 import { X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Card from '../../Card/Card';
-import { PlayedCard } from '../../../types/game.types';
+import { PlayedCard } from '@/features/game/types/card.types';
+// import { PlayedCard } from '../../../types/game.types';
 
 interface InspectCardsModalProps {
   cards: PlayedCard[];

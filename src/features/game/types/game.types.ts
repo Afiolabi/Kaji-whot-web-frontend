@@ -3,7 +3,7 @@ import type { Card, PlayedCard } from './card.types';
 
 export type GameStatus = 'waiting' | 'starting' | 'active' | 'paused' | 'ended';
 export type TurnDirection = 'clockwise' | 'counterclockwise';
-
+ 
 export interface GameState {
   roomId: string;
   mode: GameMode;

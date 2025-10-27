@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAppSelector } from '@/app/hooks';
+import { Routes, Route } from 'react-router-dom';
+// import { useAppSelector } from '@/app/hooks';
 import { ROUTES } from '@/shared/utils/constants';
 
 // Layouts
@@ -17,15 +17,15 @@ import CelebrityOnboarding from '@/pages/CelebrityOnboarding';
 import NotFound from '@/pages/NotFound';
 
 // Feature Pages
-import { Lobby } from '@/features/lobby/components/Lobby';
+// import { Lobby } from '@/features/lobby/components/Lobby';
 import { GameRoom } from '@/features/game/components/GameRoom';
-import { RoomBrowser } from '@/features/rooms/components/RoomBrowser';
+// import { RoomBrowser } from '@/features/rooms/components/RoomBrowser';
 
 // Protected Route
 import ProtectedRoute from '@/shared/components/common/ProtectedRoute';
 
 const AppRouter = () => {
-  const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+  // const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
   return (
     <Routes>
@@ -33,12 +33,18 @@ const AppRouter = () => {
       <Route path={ROUTES.HOME} element={<Landing />} />
 
       {/* Protected Routes with MainLayout */}
-      <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+      <Route
+        element={
+          <ProtectedRoute>
+            <MainLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route path={ROUTES.PLAY} element={<GameModeSelection />} />
         <Route path={ROUTES.OFFLINE} element={<OfflineGame />} />
-        <Route path={ROUTES.FREE_ROOMS} element={<RoomBrowser mode="free" />} />
-        <Route path={ROUTES.RANK_ROOMS} element={<RoomBrowser mode="rank" />} />
-        <Route path={ROUTES.CELEBRITY_ROOMS} element={<RoomBrowser mode="celebrity" />} />
+        {/* <Route path={ROUTES.FREE_ROOMS} element={<RoomBrowser mode="free" />} /> */}
+        {/* <Route path={ROUTES.RANK_ROOMS} element={<RoomBrowser mode="rank" />} /> */}
+        {/* <Route path={ROUTES.CELEBRITY_ROOMS} element={<RoomBrowser mode="celebrity" />} /> */}
         <Route path={ROUTES.WALLET} element={<Wallet />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
         <Route path={ROUTES.SETTINGS} element={<Settings />} />
@@ -46,8 +52,14 @@ const AppRouter = () => {
       </Route>
 
       {/* Game Routes with GameLayout */}
-      <Route element={<ProtectedRoute><GameLayout /></ProtectedRoute>}>
-        <Route path={ROUTES.LOBBY} element={<Lobby />} />
+      <Route
+        element={
+          <ProtectedRoute>
+            <GameLayout />
+          </ProtectedRoute>
+        }
+      >
+        {/* <Route path={ROUTES.LOBBY} element={<Lobby />} /> */}
         <Route path={ROUTES.GAME} element={<GameRoom />} />
       </Route>
 

@@ -12,7 +12,7 @@ interface ObserversPanelProps {
 
 const ObserversPanel: React.FC<ObserversPanelProps> = ({ observers, isHost }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { raiseHand, lowerHand } = useObserverActions();
+  // const { raiseHand, lowerHand } = useObserverActions();
   const { muteObserver, unmuteObserver } = useVideoActions();
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Middleware } from '@reduxjs/toolkit';
 import { socketClient } from './socketClient';
@@ -20,7 +21,7 @@ import {
   removePlayer,
   startCountdown,
   decrementCountdown,
-  addChatMessage,
+  // addChatMessage,
 } from '@/features/lobby/slices/lobbySlice';
 import { addNotification } from '@/features/notifications/slices/notificationsSlice';
 import { LobbyState } from '@/features/lobby/types/lobby.types';
@@ -29,7 +30,7 @@ import { Card } from '@/features/game/types/card.types';
 
 export const socketMiddleware: Middleware = (storeAPI) => {
   return (next) => (action) => {
-    const { type, payload } = action;
+    const { type } = action;
     const socket = socketClient.getSocket();
 
     // Setup socket listeners when user logs in
