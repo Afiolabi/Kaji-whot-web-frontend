@@ -51,7 +51,7 @@ const GameModeSelection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             onClick={() => navigate(mode.route)}
-            className={`bg-gradient-to-br ${mode.color} p-8 rounded-2xl text-white text-left hover:scale-105 transition-transform shadow-lg`}
+            className={`bg-linear-to-br ${mode.color} p-8 rounded-2xl text-white text-left hover:scale-105 transition-transform shadow-lg`}
           >
             <mode.icon className="w-16 h-16 mb-4" />
             <h2 className="text-2xl font-bold mb-2">{mode.title}</h2>

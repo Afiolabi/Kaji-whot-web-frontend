@@ -32,7 +32,7 @@ const PlayerFrame: React.FC<PlayerFrameProps> = ({ player, isActive, isMe }) => 
       />
 
       {/* Player Info Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+      <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-2">
         <p className="text-white text-sm font-semibold">{player.username}</p>
       </div>
 

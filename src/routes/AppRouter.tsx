@@ -17,12 +17,12 @@ import CelebrityOnboarding from '@/pages/CelebrityOnboarding';
 import NotFound from '@/pages/NotFound';
 
 // Feature Pages
-// import { Lobby } from '@/features/lobby/components/Lobby';
+import { Lobby } from '@/features/lobby/components/Lobby';
 import { GameRoom } from '@/features/game/components/GameRoom';
-// import { RoomBrowser } from '@/features/rooms/components/RoomBrowser';
 
 // Protected Route
 import ProtectedRoute from '@/shared/components/common/ProtectedRoute';
+import RoomBrowser from '@/features/rooms/components/RoomBrowser';
 
 const AppRouter = () => {
   // const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
@@ -42,9 +42,9 @@ const AppRouter = () => {
       >
         <Route path={ROUTES.PLAY} element={<GameModeSelection />} />
         <Route path={ROUTES.OFFLINE} element={<OfflineGame />} />
-        {/* <Route path={ROUTES.FREE_ROOMS} element={<RoomBrowser mode="free" />} /> */}
-        {/* <Route path={ROUTES.RANK_ROOMS} element={<RoomBrowser mode="rank" />} /> */}
-        {/* <Route path={ROUTES.CELEBRITY_ROOMS} element={<RoomBrowser mode="celebrity" />} /> */}
+        <Route path={ROUTES.FREE_ROOMS} element={<RoomBrowser mode="free" />} />
+        <Route path={ROUTES.RANK_ROOMS} element={<RoomBrowser mode="rank" />} />
+        <Route path={ROUTES.CELEBRITY_ROOMS} element={<RoomBrowser mode="celebrity" />} />
         <Route path={ROUTES.WALLET} element={<Wallet />} />
         <Route path={ROUTES.PROFILE} element={<Profile />} />
         <Route path={ROUTES.SETTINGS} element={<Settings />} />
@@ -59,7 +59,7 @@ const AppRouter = () => {
           </ProtectedRoute>
         }
       >
-        {/* <Route path={ROUTES.LOBBY} element={<Lobby />} /> */}
+        <Route path={ROUTES.LOBBY} element={<Lobby />} />
         <Route path={ROUTES.GAME} element={<GameRoom />} />
       </Route>
 

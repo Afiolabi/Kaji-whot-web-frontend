@@ -19,7 +19,7 @@ const GameResultsModal: React.FC<GameResultsModalProps> = ({ winner, rankings, o
       <motion.div
         initial={{ scale: 0.8, y: 50 }}
         animate={{ scale: 1, y: 0 }}
-        className="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl p-8 max-w-2xl w-full mx-4"
+        className="bg-linear-to-br from-yellow-500 to-orange-600 rounded-2xl p-8 max-w-2xl w-full mx-4"
       >
         {/* Trophy Animation */}
         <motion.div

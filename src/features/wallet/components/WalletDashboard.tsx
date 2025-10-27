@@ -19,7 +19,7 @@ const WalletDashboard = () => {
   return (
     <div className="space-y-6">
       {/* Balance Card */}
-      <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg p-8 text-white">
+      <div className="bg-linear-to-br from-primary-500 to-primary-600 rounded-lg p-8 text-white">
         <div className="flex items-center space-x-3 mb-4">
           <Wallet className="w-8 h-8" />
           <h2 className="text-2xl font-bold">Wallet Balance</h2>

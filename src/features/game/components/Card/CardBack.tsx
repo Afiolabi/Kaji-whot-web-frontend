@@ -6,7 +6,7 @@ const CardBack: React.FC<{ size?: 'sm' | 'md' | 'lg' }> = ({ size = 'md' }) => {
   };
 
   return (
-    <div className={`${sizeClasses[size]} bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg shadow-lg flex items-center justify-center`}>
+    <div className={`${sizeClasses[size]} bg-linear-to-br from-primary-600 to-primary-800 rounded-lg shadow-lg flex items-center justify-center`}>
       <div className="text-4xl font-bold text-white opacity-20">W</div>
     </div>
   );

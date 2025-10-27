@@ -1,6 +1,6 @@
 import { Users, Clock, DollarSign, Crown, Eye } from 'lucide-react';
 import { formatCurrency } from '@/shared/utils/formatters';
-import { RoomInfo } from '../../room.types';
+import { RoomInfo } from '../../types/room.types';
 
 interface RoomCardProps {
   room: RoomInfo;
@@ -24,7 +24,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onJoin }) => {
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-primary-500 to-primary-600 p-4">
+      <div className="bg-linear-to-r from-primary-500 to-primary-600 p-4">
         <div className="flex items-center justify-between">
           <h3 className="text-white font-bold text-lg truncate">{room.name}</h3>
           <div className={`px-2 py-1 ${getStatusColor()} rounded-full`}>

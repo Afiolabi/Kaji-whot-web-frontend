@@ -17,7 +17,7 @@ const Landing = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-600 via-primary-500 to-purple-600">
+    <div className="min-h-screen bg-linear-to-br from-primary-600 via-primary-500 to-purple-600">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <motion.div
