@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { PlayedCard } from '../../types/game.types';
+// import { PlayedCard } from '../../types/game.types';
+
+import { PlayedCard } from '../../types/card.types';
 
 interface GameStatusProps {
   status: string;
